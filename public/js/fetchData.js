@@ -3,8 +3,7 @@
 /* eslint-disable implicit-arrow-linebreak */
 /* eslint-disable no-unused-vars */
 
-const registerNewUser = async (username, email, password, confirmPassword) => {
-  const data = { username, email, password, confirmPassword };
+const registerNewUser = async (formInputs) => {
   const options = {
     method: 'POST',
     mode: 'cors',
@@ -15,7 +14,7 @@ const registerNewUser = async (username, email, password, confirmPassword) => {
     },
     redirect: 'follow',
     referrerPolicy: 'no-referrer',
-    body: JSON.stringify(data),
+    body: JSON.stringify(formInputs),
   };
   const response = await fetch('/api/register', options);
   return response.json();

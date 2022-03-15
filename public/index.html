@@ -18,7 +18,11 @@
     <div class="navbar">
       <a class="active" href="/"><i class="fa fa-fw fa-home"></i> Home</a>
 
-      <div class="auth__container">
+      <div class="auth__container" id="logout-container">
+        <a href="/logout"><i class="fa fa-fw fa-logout"></i> Logout<a>
+        <a class="auth__username" id="auth__username"></a>
+      </div>
+      <div class="auth__container"  id="auth-container">
         <a href="/register"><i class="fa fa-fw fa-user"></i> Register</a>
         <a href="#"><i class="fa fa-fw fa-user"></i> Login</a>
       </div>
@@ -26,6 +30,7 @@
 
     <!-- scripts -->
     <script src="./js/fun-dom.js"></script>
-    <script src="./js/fetchData.js"></script>
+    <script src="./js/dom.js"></script>
+
   </body>
 </html>

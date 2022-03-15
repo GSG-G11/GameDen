@@ -34,11 +34,14 @@ module.exports = {
                       process.env.ACCESS_TOKEN_SECRET,
                       options,
                     ).then((token) => {
-                      res.status(200).cookie('accessToken', token).json({
-                        status: 200,
-                        message: 'Register successfully',
-                        data: username,
-                      });
+                      res
+                        .status(200)
+                        .cookie('username', username)
+                        .cookie('accessToken', token)
+                        .json({
+                          status: 200,
+                          message: 'Register successfully',
+                        });
                     });
                   })
                   .catch((error) => next(error)),

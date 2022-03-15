@@ -3,20 +3,15 @@
 /* eslint-disable no-useless-escape */
 /* eslint-disable no-undef */
 
-const clearErrorMessage = (selector) => {
-  selector.forEach((element) => {
-    querySelector(element).textContent = '';
-  });
-};
 
 const checkUsername = () => {
   const { value: username } = querySelector('#username');
   if (username.length <= 6) {
     querySelector('#username_error').textContent =
-      'Please Enter a valid UserName,at least  characters';
+      'Please Enter a valid UserName,at least 6 characters';
     return false;
   }
-  clearErrorMessage(['#username_error']);
+  clearText(['#username_error']);
   return true;
 };
 
@@ -32,7 +27,7 @@ const checkEmail = () => {
       'Email at least 8 characters,and less than 100 characters';
     return false;
   }
-  clearErrorMessage(['#email_error']);
+  clearText(['#email_error']);
   return true;
 };
 
@@ -51,7 +46,7 @@ const checkPassword = () => {
       'Please Enter a valid Password,The password must be at least 8';
     return false;
   }
-  clearErrorMessage(['#password_error']);
+  clearText(['#password_error']);
   return true;
 };
 
@@ -76,7 +71,7 @@ const checkConfirmPassword = () => {
       'Please Enter a valid Password,The password contain symbols, numbers and letters (uppercase, lowercase)';
     return false;
   }
-  clearErrorMessage(['#password_error']);
+  clearText(['#password_error']);
   return true;
 };
 
@@ -92,12 +87,54 @@ const handleSubmitFrom = () => {
     checkPassword() &&
     checkConfirmPassword()
   ) {
-    clearErrorMessage(['#password_error', '#username_error', '#email_error']);
+    clearText(['#password_error', '#username_error', '#email_error']);
     // handle send request
-    console.log('done');
+   
+    const username = querySelector('#username').value;
+    const email = querySelector('#email').value;
+    const password = querySelector('#password').value;
+    const confirmPassword = querySelector('#confirm-password').value;
+
+    registerNewUser({ username, email, password, confirmPassword })
+      .then(({ status, message }) => {
+        if (status === 403) {
+          useAlert('Error', message, 'error', 'Ok', 'center', 2000, false);
+          return false;
+        }
+
+        useAlert(
+          'Success',
+          'Register Successfully 😉',
+          'success',
+          'Ok',
+          'center',
+          2000,
+          false,
+        );
+        clearInputText([
+          '#username',
+          '#email',
+          '#password',
+          '#confirm-password',
+        ]);
+
+      
+      })
+      .catch((error) => {
+        useAlert('Error', error.message, 'error', 'Ok', 'center', 2000, false);
+       
+      });
   } else {
     // handle send request
-    console.log('error');
+    useAlert(
+      'Error!',
+      'Sorry! You invalid credentials',
+      'error',
+      'Ok',
+      'center',
+      2000,
+      false,
+    );
   }
 };
 
