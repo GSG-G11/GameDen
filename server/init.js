@@ -3,7 +3,7 @@ const { join } = require('path');
 const compression = require('compression');
 const { hidePoweredBy } = require('helmet');
 const cookieParser = require('cookie-parser');
-const router = require('./routes/index');
+const router = require('./routes');
 
 module.exports = (app) => {
   app.use(cookieParser());
