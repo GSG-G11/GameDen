@@ -41,4 +41,8 @@ VALUES
     'https://www.rockstargames.com/V/'
   );
 
+  INSERT INTO users (user_name, email, password)  VALUES (
+    'a7md', 'aliMOh_123@gmail.com', '$2a$10$CuXxC90kEaj9BtrEuIHcgeTp1ykfh.HviYFy7swjRccylr7cGEIVu'
+  );
+
 COMMIT;

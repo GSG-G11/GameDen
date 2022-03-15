@@ -12,7 +12,6 @@ loginButton.addEventListener('click', (e) => {
   //  cleint side validation
   if (!email) {
     // emailInput.classList.add('error');
-
     emailInput.setAttribute('placeholder', 'Email is required');
   }
 
@@ -35,10 +34,12 @@ loginButton.addEventListener('click', (e) => {
   })
     .then((response) => response.json())
     .then((res) => {
-      console.log(res.status);
-      if (res.status === 200) {
-        window.location = '/';
-      }
+      // console.log(res.status);
+      // if (res.status === 200) {
+      //   window.location = '/';
+      // }
+      console.log(res);
     })
     .catch((err) => console.log(err));
 });
+// protected routes query to get all the games from database
