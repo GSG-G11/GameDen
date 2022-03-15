@@ -1,8 +1,13 @@
 const express = require('express');
-const loginValedate = require('../controllers/login');
+const error = require('./errors');
+const user = require('./users/authRoutes');
 
-const router = express.Router();
+const router = express();
 
-router.post('/login', loginValedate);
+router.use(user);
+
+// -------------------- Handle Error ---------------------
+router.use(error);
+
 
 module.exports = router;
