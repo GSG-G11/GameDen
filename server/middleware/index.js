@@ -1,5 +1,5 @@
-const authenticateToken = require('./authenticateToken');
-const redirectToDefault = require('./redirectToDefault');
+const { authenticateToken } = require('./authenticateToken');
+const { redirectToDefault } = require('./redirectToDefault');
 
 module.exports = {
   authenticateToken,

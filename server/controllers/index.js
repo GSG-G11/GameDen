@@ -1,7 +1,11 @@
 const { generateToken, checkToken } = require('./tokenHandle');
 const { hashPassword, comparePasswords } = require('./hashHandle');
 const { handleErrorNotFound, handleErrorServer } = require('./ErrorHandle');
-const { createUserHandle, getRegisterPage } = require('./createUserHandle');
+const {
+  createUserHandle,
+  getRegisterPage,
+  logout,
+} = require('./createUserHandle');
 
 module.exports = {
   generateToken,
@@ -12,4 +16,5 @@ module.exports = {
   handleErrorServer,
   createUserHandle,
   getRegisterPage,
+  logout,
 };

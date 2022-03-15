@@ -68,4 +68,14 @@ module.exports = {
       next(err);
     }
   },
+
+  logout: (_, res, next) => {
+    try {
+      res.status(301).clearCookie('accessToken').clearCookie('username').redirect('/');
+    } catch (err) {
+      next(err);
+    }
+  },
+
+
 };

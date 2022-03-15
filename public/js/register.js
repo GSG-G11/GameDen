@@ -3,7 +3,6 @@
 /* eslint-disable no-useless-escape */
 /* eslint-disable no-undef */
 
-
 const checkUsername = () => {
   const { value: username } = querySelector('#username');
   if (username.length <= 6) {
@@ -89,7 +88,7 @@ const handleSubmitFrom = () => {
   ) {
     clearText(['#password_error', '#username_error', '#email_error']);
     // handle send request
-   
+
     const username = querySelector('#username').value;
     const email = querySelector('#email').value;
     const password = querySelector('#password').value;
@@ -118,11 +117,12 @@ const handleSubmitFrom = () => {
           '#confirm-password',
         ]);
 
-      
+        setTimeout(() => {
+          window.location.href = '/';
+        }, 2000);
       })
       .catch((error) => {
         useAlert('Error', error.message, 'error', 'Ok', 'center', 2000, false);
-       
       });
   } else {
     // handle send request
