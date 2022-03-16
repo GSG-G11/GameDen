@@ -11,37 +11,29 @@ window.onload = () => {
         return false;
       }
       const gamesContainer = querySelector('#user-games-container');
-      console.log(data);
       return data.forEach(
         ({
-          description,
+          // description,
           game_name: gameName,
           game_url: gameUrl,
           game_id :gameId,
           image,
         }) => {
       
-          const gameCard = createElement('div', 'game__card', gamesContainer);
+          const gameCard = createElement('div', 'game_user__card', gamesContainer);
 
-          const imgCard = createElement('div', 'img__card', gameCard);
-          const img = createElement('img', 'img__game', imgCard);
+          const imgCard = createElement('div', 'img_user__card', gameCard);
+          const img = createElement('img', 'img_user__game', imgCard);
           img.src = image;
 
-          const bodyCard = createElement('div', 'body__card', gameCard);
+          const bodyCard = createElement('div', 'body__user__card', gameCard);
 
-          const nameGame = createElement('h2', 'game__name', bodyCard);
+          const nameGame = createElement('h2', 'game__user__name', bodyCard);
           nameGame.textContent = gameName;
-
-          const descriptionGame = createElement(
-            'p',
-            'game__description',
-            bodyCard,
-          );
-          descriptionGame.textContent = description;
 
           const deleteGame = createElement(
             'button',
-            'delete_game__description',
+            'delete_game',
             bodyCard,
           );
           deleteGame.textContent = 'delete';
@@ -68,7 +60,7 @@ window.onload = () => {
 
           const goToGame = createElement(
             'button',
-            'go_to_Game__description',
+            'go_to_Game__url',
             bodyCard,
           );
           goToGame.textContent = 'Go To Game';

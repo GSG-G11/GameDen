@@ -96,7 +96,7 @@ button {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 50px;
+  padding: 0 60px;
 }
 
 .navbar a {
@@ -137,7 +137,7 @@ button {
   align-items: center;
   height: 92vh;
   gap: 50px;
-  padding: 0 50px;
+  padding: 0 60px;
 }
 
 .body__title {
@@ -176,18 +176,198 @@ button {
 }
 
 .games-container {
-  width: 80%;
-  margin: 0 auto;
+  width: 90%;
+  margin: 30px auto;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(600px, 1fr));
   gap: 30px;
 }
 
+.game__card {
+  display: flex;
+  background: #f0f0f0;
+  border-radius: 8px;
+}
+
+.img__card {
+  width: 100%;
+  /* height: 80%; */
+  max-height: 350px;
+  max-width: 300px;
+  min-width: 300px;
+  border-radius: 8px 0 0 8px;
+}
+.img__game {
+  width: 100%;
+  height: 100%;
+  max-width: 300px;
+  min-width: 300px;
+  border-radius: 8px 0 0 8px;
+}
+
+.body__card {
+  margin: 15px auto;
+  padding: 0 22px;
+  position: relative;
+}
+
+.body__card .game__name {
+  font-family: 'Ubuntu', sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 34px;
+  text-transform: uppercase;
+  color: #333;
+  margin-bottom: 30px;
+}
+
+.body__card .game__description {
+  font-family: 'Ubuntu', sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 25px;
+  color: #333;
+}
+
+.add_game__description {
+  position: absolute;
+  cursor: pointer;
+  bottom: 0;
+  left: 50%;
+  transform: translate(50%, 0);
+  padding: 12px;
+  background: #28be37;
+  border-radius: 8px;
+  color: #fff;
+  font-style: normal;
+  font-weight: 700;
+  transition: all 0.5s ease-in-out;
+}
+.go_to_Game__description {
+  position: absolute;
+  cursor: pointer;
+  bottom: 0;
+  left: 35%;
+  transform: translate(-50%, 0);
+  padding: 12px;
+  background: #26b434;
+  border-radius: 8px;
+  color: #fff;
+  font-style: normal;
+  font-weight: 700;
+  transition: all 0.5s ease-in-out;
+}
+
+.add_game__description:hover,
+.go_to_Game__description:hover {
+  background: rgb(30, 121, 39);
+  color: #ffffff;
+  box-shadow: 3px 0px 0px #26b434;
+}
+
+/* 650 */
+@media screen and (max-width: 800px) {
+  .game__card {
+    flex-direction: column;
+  }
+
+  .img__card {
+    width: 100%;
+    max-height: 350px;
+    max-width: 100%;
+    min-width: 100%;
+  }
+  .img__game {
+    max-width: 100%;
+    min-width: 100%;
+  }
+  .add_game__description {
+    margin-top: 15px;
+    position: relative;
+    left: 30%;
+    transform: translate(0, 0);
+  }
+  .go_to_Game__description {
+    margin-top: 15px;
+    position: relative;
+    right: 35%;
+    transform: translate(0, 0);
+  }
+}
+
+/* ----- user-games-container ---- */
 .user-games-container {
-  width: 80%;
-  margin: 0 auto;
+  width: 90%;
+  margin: 30px auto;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 30px;
 }
 
+.body__user__card {
+  margin: 15px auto;
+  padding: 0 22px;
+}
+
+.game_user__card {
+  display: flex;
+  background: #f0f0f0;
+  border-radius: 8px;
+  flex-direction: column;
+  position: relative;
+}
+
+.game__user__name {
+  font-family: 'Ubuntu', sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 34px;
+  text-transform: uppercase;
+  color: #333;
+  margin-bottom: 35px;
+}
+
+.img_user__card {
+  width: 100%;
+  border-radius: 8px 8px 0 0;
+}
+.img_user__game {
+  width: 100%;
+  height: 100%;
+  max-height: 350px;
+  border-radius: 8px 8px 0 0;
+}
+
+.delete_game {
+  position: absolute;
+  cursor: pointer;
+  bottom: 10px;
+  left: 50%;
+  transform: translate(50%, 0);
+  padding: 12px;
+  background: #ce3723;
+  border-radius: 8px;
+  color: #fff;
+  font-style: normal;
+  font-weight: 700;
+  transition: all 0.5s ease-in-out;
+  /* float: right; */
+}
+.go_to_Game__url {
+  position: absolute;
+  cursor: pointer;
+  bottom: 10px;
+  left: 35%;
+  transform: translate(-50%, 0);
+  padding: 12px;
+  background: #26b434;
+  border-radius: 8px;
+  color: #fff;
+  font-style: normal;
+  font-weight: 700;
+  transition: all 0.5s ease-in-out;
+  /* float: left; */
+}
