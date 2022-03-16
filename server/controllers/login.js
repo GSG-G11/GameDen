@@ -2,16 +2,13 @@ const { sign } = require('jsonwebtoken');
 const { compare } = require('bcryptjs');
 const { join } = require('path');
 
-const schema = require('../validation/validate');
+const { loginValidationSchema } = require('../validation');
 const { getUserQuery } = require('../database/queries');
 
 const relativePath = `${__dirname}/../../public`;
 
-
-
-
 const loginValidData = (req, res) => {
-  schema
+  loginValidationSchema
     .validateAsync(req.body, { abortEarly: false })
     .then(() => {
       getUserQuery(req.body.email)
@@ -41,41 +38,33 @@ const loginValidData = (req, res) => {
                         ' success! You have account log in go to home page',
                     });
                 } else {
-                  res
-                    .status(401)
-                    .json({
-                      status: 401,
-                      errorType: 'passwordError',
-                      message: 'Password Error!',
-                    });
+                  res.status(401).json({
+                    status: 401,
+                    errorType: 'passwordError',
+                    message: 'Password Error!',
+                  });
                 }
               })
               .catch(() => {
-                res
-                  .status(200)
-                  .json({
-                    status: 401,
-                    message: ' response came back empty! password error',
-                  });
+                res.status(200).json({
+                  status: 401,
+                  message: ' response came back empty! password error',
+                });
               });
           } else {
-            res
-              .status(401)
-              .json({
-                status: 401,
-                errorType: 'emailError',
-                message: 'This email not exist please sign up',
-              });
+            res.status(401).json({
+              status: 401,
+              errorType: 'emailError',
+              message: 'This email not exist please sign up',
+            });
           }
         })
         .catch((error) =>
-          res
-            .status(401)
-            .json({
-              status: 401,
-              data: error,
-              message: ' failed! Invalid input',
-            }),
+          res.status(401).json({
+            status: 401,
+            data: error,
+            message: ' failed! Invalid input',
+          }),
         );
     })
     .catch((error) => {

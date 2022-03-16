@@ -1,12 +1,10 @@
 const { join } = require('path');
 const { checkUserQuery, createUserQuery } = require('../database/queries');
-const registerValidationSchema = require('../validation');
+const { registerValidationSchema } = require('../validation');
 const { hashPassword } = require('./hashHandle');
 const { generateToken } = require('./tokenHandle');
 
 const relativePath = `${__dirname}/../../public`;
-
-
 
 module.exports = {
   createUserHandle: ({ body }, res) => {
@@ -47,11 +45,19 @@ module.exports = {
                         });
                     });
                   })
-                  .catch(() => res.status(500).sendFile(join(relativePath, 'error/500.html'))),
+                  .catch(() =>
+                    res
+                      .status(500)
+                      .sendFile(join(relativePath, 'error/500.html')),
+                  ),
               )
-              .catch(() => res.status(500).sendFile(join(relativePath, 'error/500.html')));
+              .catch(() =>
+                res.status(500).sendFile(join(relativePath, 'error/500.html')),
+              );
           })
-          .catch(() => res.status(500).sendFile(join(relativePath, 'error/500.html')));
+          .catch(() =>
+            res.status(500).sendFile(join(relativePath, 'error/500.html')),
+          );
       })
       .catch((error) => {
         const { _original } = error;
