@@ -4,15 +4,16 @@ const { join } = require('path');
 const schema = require('../validation/validate');
 const getUserQuery = require('../database/queries/getUserQuery');
 
-const loginValedate = (req, res) => {
-  schema
-    .validateAsync(req.body, { abortEarly: false })
-    .then(() => {
-      getUserQuery(req.body.email)
-        .then((data) => {
-          const isValid = data.rows.length > 0;
-          if (isValid) {
-            compare(req.body.password, data.rows[0].password).then((hashExists) => {
+const relativePath = `${__dirname}/../../public`;
+
+const loginValidData = (req, res) => {
+  schema.validateAsync(req.body, { abortEarly: false }).then(() => {
+    getUserQuery(req.body.email)
+      .then((data) => {
+        const isValid = data.rows.length > 0;
+        if (isValid) {
+          compare(req.body.password, data.rows[0].password)
+            .then((hashExists) => {
               if (hashExists) {
                 const tokenBody = {
                   username: data.rows[0].user_name,
@@ -22,32 +23,27 @@ const loginValedate = (req, res) => {
                 res
                   .status(200)
                   .cookie('accessToken', token)
+                  .cookie('username', data.rows[0].user_name)
                   .json({ status: 200, message: ' success!' });
               } else {
-                res.status(401).json({ status: 401, message: 'hashed pass came back' });
+                res
+                  .status(401)
+                  .json({ status: 401, message: 'hashed pass came back' });
               }
-            }).catch(() => {
-              res.status(200).json({ status: 401, message: ' response came back empty!' });
+            })
+            .catch(() => {
+              res
+                .status(200)
+                .json({ status: 401, message: ' response came back empty!' });
             });
-          } else {
-            res.status(401).json({ status: 401, message: ' failed!' });
-          }
-        })
-        .catch((error) => res
-          .status(401)
-          .json({ status: 401, data: error, message: ' failed!' }));
-
-const relativePath = `${__dirname}/../../public`;
-
-const loginValidData = (req, res) => {
-  schema
-    .validateAsync(req.body, { abortEarly: false })
-    .then((value) => {
-      res.status(200).json({ status: 200, data: value, message: ' success!' });
-    })
-    .catch((error) => {
-      res.status(401).json({ status: 401, data: error, message: ' failed!' });
-    });
+        } else {
+          res.status(401).json({ status: 401, message: ' failed!' });
+        }
+      })
+      .catch((error) =>
+        res.status(401).json({ status: 401, data: error, message: ' failed!' }),
+      );
+  });
 };
 
 const getLoginPage = (_, res, next) => {

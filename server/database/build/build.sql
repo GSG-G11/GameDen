@@ -39,10 +39,14 @@ VALUES
     'https://m.media-amazon.com/images/I/71kJo3PC3pL._AC_SX522_.jpg',
     'Language: English,Manufacturer: Sony',
     'https://www.rockstargames.com/V/'
+  ),
+   (
+    'Minecraft game',
+    'https://upload.wikimedia.org/wikinews/en/7/7a/Minecraft_game_cover.jpeg',
+    'Cover of Minecraft,Language: English,Manufacturer: Minecraft',
+    'https://www.minecraft.net/en-us'
   );
 
-  INSERT INTO users (user_name, email, password)  VALUES (
-    'a7md', 'aliMOh_123@gmail.com', '$2a$10$CuXxC90kEaj9BtrEuIHcgeTp1ykfh.HviYFy7swjRccylr7cGEIVu'
-  );
+
 
 COMMIT;
