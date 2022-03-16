@@ -14,6 +14,8 @@ const {
   addGameToUser,
   getAllGamesUser,
   showAllGamesUser,
+  showAllGames,
+  deleteUserGames
 } = require('./gamesHandle');
 
 module.exports = {
@@ -32,4 +34,6 @@ module.exports = {
   addGameToUser,
   getAllGamesUser,
   showAllGamesUser,
+  showAllGames,
+  deleteUserGames
 };
