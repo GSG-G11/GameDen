@@ -4,15 +4,32 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/login.css">
     <title>Login Page</title>
   </head>
   <body>
+    <div class="navbar">
+      <a class="active" href="/"><i class="fa fa-fw fa-home"></i> Home</a>
+
+      <div class="auth__container"  id="auth-container">
+        <a href="/register"><i class="fa fa-fw fa-user"></i> Register</a>
+      </div>
+    </div>
     <form id="form">
-      <label for="email">Email: </label>
-      <input id="email" type="text" />
-      <label for="password">Password: </label>
-      <input id="password" type="password" />
+      <h1>Log In</h1>
+      <div class="input-box">
+        <label for="email">Email: </label>
+        <input id="email" type="text" placeholder="Enter Email"/>
+        <p class="error email-error-messsage"></p>
+      </div>
+      <div class="input-box">
+        <label for="password">Password: </label>
+        <input id="password" type="password" placeholder="Enter Password" />
+        <p class="error password-error-messsage"></p>
+      </div>
+
       <input id="login" value="submit" type="submit" />
+      <p class="no-account">"Don't have an account yet? " <a href="./register.html">Sign Up</a></p>
     </form>
 
     <script src="./js/loginFetch.js"></script>

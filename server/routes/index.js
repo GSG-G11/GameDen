@@ -1,6 +1,7 @@
 const express = require('express');
 
-const loginValedate = require('../controllers/login');
+// const { loginValedate } = require('../controllers/login');
+// const {loginValidData} = require('../controllers/login');
 const cookieMaker = require('../controllers/authorization');
 
 const error = require('./errors');
@@ -14,7 +15,8 @@ router.use(user);
 // -------------------- Handle Error ---------------------
 router.use(error);
 
-
-router.post('/login', loginValedate);
+// router.post('/api/login', loginValedate);
+// router.post('/api/login', loginValidData);
 router.get('/test', cookieMaker);
+
 module.exports = router;
