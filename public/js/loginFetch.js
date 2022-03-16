@@ -5,7 +5,7 @@ const loginButton = document.getElementById('login');
 const emailErrorMessage = document.querySelector('.email-error-messsage');
 const passwordErrorMessage = document.querySelector('.password-error-messsage');
 
-  //  cleint side validation 
+//  cleint side validation
 emailInput.addEventListener('focusout', () => {
   const email = document.getElementById('email').value;
   const regexEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
@@ -18,18 +18,18 @@ emailInput.addEventListener('focusout', () => {
 
 passwordInput.addEventListener('focusout', () => {
   const password = document.getElementById('password').value;
-  const regexPassword = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/;
+  const regexPassword =
+    /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/;
   if (!regexPassword.test(password) || password.length <= 0) {
     passwordErrorMessage.textContent =
       'Please Enter a valid Password,The password contain symbols, numbers and letters (uppercase, lowercase)';
-  }
-  else {
+  } else {
     passwordErrorMessage.textContent = '';
   }
-})
- //  end client side validation
+});
+//  end client side validation
 
- // server side validation
+// server side validation
 loginButton.addEventListener('click', (e) => {
   e.preventDefault();
 
@@ -48,14 +48,19 @@ loginButton.addEventListener('click', (e) => {
   })
     .then((response) => response.json())
     .then((res) => {
+      console.log(res);
+
       if (res.status === 200) {
         window.location = '/';
       } else if (res.errorType === 'passwordError') {
-        document.querySelector('.password-error-messsage').textContent = res.message;
+        document.querySelector('.password-error-messsage').textContent =
+          res.message;
       } else if (res.errorType === 'emailError') {
         emailErrorMessage.textContent = res.message;
       }
     })
-    .catch(() => { window.location = '../error/404.html' });
+    .catch(() => {
+      window.location.href = '/';
+    });
 });
 // protected routes query to get all the games from database

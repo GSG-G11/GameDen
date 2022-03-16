@@ -39,10 +39,16 @@ VALUES
     'https://m.media-amazon.com/images/I/71kJo3PC3pL._AC_SX522_.jpg',
     'Language: English,Manufacturer: Sony',
     'https://www.rockstargames.com/V/'
+  ),
+   (
+    'Minecraft game',
+    'https://upload.wikimedia.org/wikinews/en/7/7a/Minecraft_game_cover.jpeg',
+    'Cover of Minecraft,Language: English,Manufacturer: Minecraft',
+    'https://www.minecraft.net/en-us'
   );
 
-  INSERT INTO users (user_name, email, password)  VALUES (
-    'a7md', 'aliMOh_123@gmail.com', '$2a$10$CuXxC90kEaj9BtrEuIHcgeTp1ykfh.HviYFy7swjRccylr7cGEIVu'
-  );
+
+-- INSERT INTO game_user (user_id, game_id) VALUES (1,1);
+-- select DISTINCT  g.id  as game_id , g.game_name, g.image, g.description, g.game_url  FROM games g join game_user gu on g.id = gu.game_id join users u on u.id = gu.user_id where u.id=1;
 
 COMMIT;

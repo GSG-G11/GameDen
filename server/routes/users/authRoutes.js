@@ -3,7 +3,7 @@ const {
   createUserHandle,
   getRegisterPage,
   logout,
-  loginValedate,
+  loginValidData,
   getLoginPage
 } = require('../../controllers');
 const { redirectToDefault, authenticateToken } = require('../../middleware');
@@ -15,7 +15,7 @@ user.get('/logout', authenticateToken, logout);
 user.get('/register', redirectToDefault, getRegisterPage);
 user.post('/api/register', redirectToDefault, createUserHandle);
 
-user.post('/api/login', redirectToDefault, loginValedate);
+user.post('/api/login', redirectToDefault, loginValidData);
 user.get('/login', redirectToDefault, getLoginPage);
 
 

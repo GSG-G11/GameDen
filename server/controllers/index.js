@@ -7,7 +7,14 @@ const {
   logout,
 } = require('./createUserHandle');
 
-const { loginValedate, loginValidData, getLoginPage } = require('./login');
+const { loginValidData, getLoginPage } = require('./login');
+
+const {
+  getAllGames,
+  addGameToUser,
+  getAllGamesUser,
+  showAllGamesUser,
+} = require('./gamesHandle');
 
 module.exports = {
   generateToken,
@@ -19,7 +26,10 @@ module.exports = {
   createUserHandle,
   getRegisterPage,
   logout,
-  loginValedate,
   loginValidData,
   getLoginPage,
+  getAllGames,
+  addGameToUser,
+  getAllGamesUser,
+  showAllGamesUser,
 };
