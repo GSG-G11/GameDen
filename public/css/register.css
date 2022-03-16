@@ -4,13 +4,16 @@
         ***     02.  ==>   General Style   
 
 --------------------------------------------------------------------- */
-
+@import url("https://fonts.googleapis.com/css2?family=Lobster&display=swap");
 /* Root Variables */
 
 :root {
   --black: #333333;
   --white: #ffffff;
   --light-orange: #ff9a6c;
+  --green: #17d679;
+  --grey: #3f3d56;
+  --red: #a64452;
 }
 
 /* ------------------------------------------------------------------
@@ -30,11 +33,55 @@ html {
 }
 
 body {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   width: 100%;
   height: 100%;
   background-color: var(--white);
   overflow-x: hidden;
+}
+.main {
+  height: 100vh;
+}
+.main img {
+  object-fit: cover;
+  max-width: 100%;
+}
+label {
+  font-family: "Lobster", cursive;
+  font-size: 1.3rem;
+}
+.header {
+  color: var(--light-orange);
+  text-align: center;
+  margin-bottom: 2rem;
+  font-family: "Lobster", cursive;
+  font-size: 4rem;
+}
+.form__register {
+  color: var(--white);
+  background-color: rgba(0, 0, 0, 0.685);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 30rem;
+
+  padding: 50px 30px;
+  border-radius: 10px;
+}
+
+.form__group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.form__input {
+  padding: 15px;
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.822);
+  color: var(--white);
 }
 
 select,
@@ -43,10 +90,29 @@ button:focus,
 input,
 input:focus textarea,
 textarea:focus {
-  outline: none;
   border: none;
+  outline: none;
 }
 
+.form__error {
+  color: var(--red);
+}
+
+.form-submit {
+  color: black;
+  background-color: var(--light-orange);
+  padding: 10px 20px;
+  border-radius: 9px;
+  font-weight: bold;
+  font-size: 1.5rem;
+  display: block;
+  margin: 1rem auto 10px;
+  font-family: "Lobster", cursive;
+  transition: all 0.3s ease-in-out ;
+}
+.form-submit:hover{
+ background-color: orange ;
+}
 a {
   text-decoration: none;
 }
@@ -81,5 +147,5 @@ button {
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #c07754;
+  background: #c07654c0;
 }

@@ -4,6 +4,7 @@
         ***     02.  ==>   General Style   
 
 --------------------------------------------------------------------- */
+@import url("https://fonts.googleapis.com/css2?family=Lobster&display=swap");
 
 /* Root Variables */
 
@@ -11,6 +12,9 @@
   --black: #333333;
   --white: #ffffff;
   --light-orange: #ff9a6c;
+  --green:  #17D679;
+  --grey: #3F3D56;
+  --red : #a64452 ;
 }
 
 /* ------------------------------------------------------------------
@@ -36,7 +40,19 @@ body {
   background-color: var(--white);
   overflow-x: hidden;
 }
+.main {
+  height: 100vh;
+  
+}
+.mian img {
+  object-fit: cover;
+  
+}
 
+.header {
+  font-family: 'Lobster', cursive;
+  font-size: 3rem;
+}
 select,
 button,
 button:focus,
@@ -45,6 +61,11 @@ input:focus textarea,
 textarea:focus {
   outline: none;
   border: none;
+}
+
+label{
+  font-size: 1.3rem;
+  font-family: 'Lobster', cursive;
 }
 
 a {
@@ -89,17 +110,19 @@ button {
 --------------------------------------------------------------------- */
 #form {
   color: var(--white);
-  background-color: var(--black);
+  background-color: rgba(0, 0, 0, 0.685);
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 450px;
+  width:  30rem;
+  height: 60%;
   padding: 50px 30px;
   border-radius: 10px;
 }
 h1 {
   color: #04aa6d;
+  font-weight: bolder;
   text-align: center;
   margin-bottom: 30px;
 }
@@ -110,16 +133,23 @@ h1 {
   margin-bottom: 12px;
 }
 .input-box input {
-  padding: 10px;
+  padding: 15px;
   border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.822);
+  color: var(--white);
+}
+::placeholder{
+  color: rgba(255, 255, 255, 0.349);
 }
 .input-box .error {
-  color: red;
+  color: var(--red);
   font-size: 13px;
 }
 input[type="submit"] {
   color: var(--white);
-  background-color: var(--light-orange);
+  color: var(--black);
+  font-family: 'Lobster', cursive;
+  font-size: 1.5rem;
   padding: 10px 20px;
   border-radius: 9px;
   font-weight: bold;
@@ -127,45 +157,20 @@ input[type="submit"] {
   display: block;
   margin: 0 auto 10px;
 }
+#login {
+  background-color: var(--green) ;
+  font-size: 1.5rem;
+}
+#login:hover {
+  background-color: #04aa6d;
+  cursor: cell;
+}
 .no-account {
   color: var(--white);
   font-size: 14px;
   text-align: center;
 }
 .no-account a {
-  color: blue;
+  color: rgb(92, 92, 223);
   text-decoration: underline;
-}
-
-.navbar {
-  width: 100%;
-  background-color: #555;
-  overflow: auto;
-}
-
-.navbar a {
-  float: left;
-  padding: 12px;
-  color: white;
-  text-decoration: none;
-  font-size: 17px;
-}
-
-.navbar a:hover {
-  background-color: #000;
-}
-
-.active {
-  background-color: #04aa6d;
-}
-
-.auth__container {
-  float: right;
-}
-
-@media screen and (max-width: 500px) {
-  .navbar a {
-    float: none;
-    display: block;
-  }
 }
