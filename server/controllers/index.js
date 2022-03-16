@@ -9,6 +9,8 @@ const {
 
 const { loginValidData, getLoginPage } = require('./login');
 
+const { getAllGames } = require('./gamesHandle');
+
 module.exports = {
   generateToken,
   checkToken,
@@ -21,4 +23,5 @@ module.exports = {
   logout,
   loginValidData,
   getLoginPage,
+  getAllGames,
 };

@@ -2,7 +2,7 @@ const { sign } = require('jsonwebtoken');
 const { compare } = require('bcryptjs');
 const { join } = require('path');
 const schema = require('../validation/validate');
-const getUserQuery = require('../database/queries/getUserQuery');
+const { getUserQuery } = require('../database/queries');
 
 const relativePath = `${__dirname}/../../public`;
 
