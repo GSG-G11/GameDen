@@ -50,5 +50,5 @@ VALUES
 
 -- INSERT INTO game_user (user_id, game_id) VALUES (1,1);
 -- select DISTINCT  g.id  as game_id , g.game_name, g.image, g.description, g.game_url  FROM games g join game_user gu on g.id = gu.game_id join users u on u.id = gu.user_id where u.id=1;
-
+-- DELETE FROM game_user WHERE game_id = 1;
 COMMIT;

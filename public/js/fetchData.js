@@ -67,3 +67,21 @@ const getUserGames = async () => {
   const response = await fetch('/api/user/games', options);
   return response.json();
 };
+
+
+
+const deleteUserGames = async (gameId) => {
+  const options = {
+    method: 'DELETE',
+    mode: 'cors',
+    cache: 'no-cache',
+    credentials: 'same-origin',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    redirect: 'follow',
+    referrerPolicy: 'no-referrer',
+  };
+  const response = await fetch(`/api/user/game/${gameId}`, options);
+  return response.json();
+};

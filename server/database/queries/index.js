@@ -4,6 +4,7 @@ const getUserQuery = require('./getUserQuery');
 const getAllGamesQuery = require('./getAllGamesQuery');
 const addGameToUserQuery = require('./addGameToUserQuery');
 const getAllGamesUserQuery = require('./getAllGamesUserQuery');
+const deleteUserGamesQuery = require('./deleteUserGamesQuery');
 
 module.exports = {
   createUserQuery,
@@ -12,4 +13,5 @@ module.exports = {
   getAllGamesQuery,
   addGameToUserQuery,
   getAllGamesUserQuery,
+  deleteUserGamesQuery,
 };

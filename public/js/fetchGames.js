@@ -27,6 +27,7 @@ window.onload = () => {
       }
       const gamesContainer = querySelector('#games-container');
 
+      
       return data.forEach(
         ({
           description,

@@ -3,25 +3,24 @@
 /* eslint-disable implicit-arrow-linebreak */
 /* eslint-disable no-unused-vars */
 
-  
-  window.onload = () => {
-
-    getUserGames()
+window.onload = () => {
+  getUserGames()
     .then(({ status, data }) => {
       if (status !== 200) {
         window.location.href = '/';
         return false;
       }
       const gamesContainer = querySelector('#user-games-container');
-
+      console.log(data);
       return data.forEach(
         ({
           description,
           game_name: gameName,
           game_url: gameUrl,
-          id,
+          game_id :gameId,
           image,
         }) => {
+      
           const gameCard = createElement('div', 'game__card', gamesContainer);
 
           const imgCard = createElement('div', 'img__card', gameCard);
@@ -40,30 +39,32 @@
           );
           descriptionGame.textContent = description;
 
-          // const addGame = createElement(
-          //   'button',
-          //   'add_game__description',
-          //   bodyCard,
-          // );
-          // addGame.textContent = 'Add Game';
-          // addGame.addEventListener('click', () => {
-          //   // send request to server to add game to user
-          //   addGameToUser(id)
-          //     .then(() => {
-          //       useAlert(
-          //         'Success',
-          //         'Game Added Successfully 😉',
-          //         'success',
-          //         'Ok',
-          //         'center',
-          //         2000,
-          //         false,
-          //       );
-          //     })
-          //     .catch((error) => {
-          //       useAlert('Error!', error, 'error', 'Ok', 'center', 2000, false);
-          //     });
-          // });
+          const deleteGame = createElement(
+            'button',
+            'delete_game__description',
+            bodyCard,
+          );
+          deleteGame.textContent = 'delete';
+          deleteGame.addEventListener('click', () => {
+            
+            // send request to server to add game to user
+            deleteUserGames(gameId)
+              .then(() => {
+                useAlert(
+                  'Success',
+                  'Game Deleted Successfully 😉',
+                  'success',
+                  'Ok',
+                  'center',
+                  2000,
+                  false,
+                );
+                window.location.href = '/user/games/show';
+              })
+              .catch((error) => {
+                useAlert('Error!', error, 'error', 'Ok', 'center', 2000, false);
+              });
+          });
 
           const goToGame = createElement(
             'button',
@@ -81,5 +82,4 @@
     .catch((error) => {
       window.location.href = '/';
     });
-
-  }
+};

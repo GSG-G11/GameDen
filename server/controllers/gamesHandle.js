@@ -3,6 +3,7 @@ const {
   getAllGamesQuery,
   addGameToUserQuery,
   getAllGamesUserQuery,
+  deleteUserGamesQuery
 } = require('../database/queries');
 const { checkToken } = require('./tokenHandle');
 
@@ -98,5 +99,21 @@ module.exports = {
     } catch (err) {
       res.status(500).sendFile(join(relativePath, '500.html'));
     }
+  },
+
+  deleteUserGames : ({ params }, res)=>{
+   const {gameId} =  params;
+   deleteUserGamesQuery(gameId)
+   .then(({ rows }) => {
+     res.status(200).json({ status: 200, data: rows });
+   })
+   .catch(() =>
+     res
+       .status(500)
+       .clearCookie('accessToken')
+       .clearCookie('username')
+       .clearCookie('id')
+       .sendFile(join(relativePath, '500.html')),
+   );
   }
 };
