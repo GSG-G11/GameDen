@@ -60,7 +60,7 @@ VALUES
 (
   'Spirit of the Island',
 
-'https://cdn1.epicgames.com/salesEvent/salesEvent/EGS_SpiritoftheIsland_1MBitsHorde_S2_1200x1600-631f0625d04e30be6dd86f9556fae67c.jpg',
+'https://cf.geekdo-images.com/a13ieMPP2s0KEaKNYmtH5w__opengraph/img/0A_yzGwxraMhSkdgPWbwChQeSvE=/fit-in/1200x630/filters:strip_icc()/pic3615739.png',
 'Spirit of the Island is a colorful coop life-sim RPG set on a tropical Archipelago. Build your farm, grow crops and animals, gather resources',
 'https://store.epicgames.com/en-US/p/spirit-of-the-island'
 
