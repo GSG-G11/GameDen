@@ -45,10 +45,39 @@ VALUES
     'https://upload.wikimedia.org/wikinews/en/7/7a/Minecraft_game_cover.jpeg',
     'Cover of Minecraft,Language: English,Manufacturer: Minecraft',
     'https://www.minecraft.net/en-us'
+  ),
+
+  (
+    'Rocket League',
+
+'https://cdn2.unrealengine.com/egs-social-rocketleague-news-1920x1080-1920x1080-975383433.jpg',
+'We’re excited to announce that Rocket League is going free to play and launching on the Epic Games Store on September 23!',
+
+'https://store.epicgames.com/en-US/news/rocket-league-is-free-to-play-on-epic-games-store-starting-september-23'
+
+),
+
+(
+  'Spirit of the Island',
+
+'https://cdn1.epicgames.com/salesEvent/salesEvent/EGS_SpiritoftheIsland_1MBitsHorde_S2_1200x1600-631f0625d04e30be6dd86f9556fae67c.jpg',
+'Spirit of the Island is a colorful coop life-sim RPG set on a tropical Archipelago. Build your farm, grow crops and animals, gather resources',
+'https://store.epicgames.com/en-US/p/spirit-of-the-island'
+
+
+),
+ (
+    'Battlefield',
+    'https://media.contentapi.ea.com/content/dam/gin/images/2021/06/battlefield-2042-key-art.jpg.adapt.crop1x1.767p.jpg',
+    'The next generation of all-out war is here – play Battlefield 2042 today. Adapt and overcome dynamically-changing battlegrounds with the help of your squad and a cutting-edge arsenal',
+    'https://www.ea.com/games/battlefield/battlefield-2042'
+  ),
+   (
+    'Fortnite',
+    'https://cdn2.unrealengine.com/7up-v2-3840x2160-e11fc91a84d6.jpg',
+    'fortnite of the Island is a colorful coop life-sim RPG set on a tropical Archipelago. Build your farm, grow crops and animals, gather resources',
+    'https://www.epicgames.com/fortnite/en-US/home'
   );
 
 
--- INSERT INTO game_user (user_id, game_id) VALUES (1,1);
--- select DISTINCT  g.id  as game_id , g.game_name, g.image, g.description, g.game_url  FROM games g join game_user gu on g.id = gu.game_id join users u on u.id = gu.user_id where u.id=1;
--- DELETE FROM game_user WHERE game_id = 1;
 COMMIT;

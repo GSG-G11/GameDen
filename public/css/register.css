@@ -129,6 +129,17 @@ button {
   cursor: pointer;
   background: transparent;
 }
+.already{
+  margin-top: 1rem;
+  text-align: center;
+}
+.already a{
+  color: rgb(92, 92, 223);
+}
+.already a:hover{
+  color: rgb(92, 92, 223);
+  text-decoration: underline;
+}
 
 /* width */
 ::-webkit-scrollbar {
