@@ -22,7 +22,7 @@ loginButton.addEventListener('click', (e) => {
   //  end client side validation
 
   // server side validation
-  fetch('/login', {
+  fetch('/api/login', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json; charset=utf-8',
