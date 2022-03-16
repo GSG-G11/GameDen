@@ -6,8 +6,10 @@ const { generateToken } = require('./tokenHandle');
 
 const relativePath = `${__dirname}/../../public`;
 
+
+
 module.exports = {
-  createUserHandle: ({ body }, res, next) => {
+  createUserHandle: ({ body }, res) => {
     const { username, email, password, confirmPassword } = body;
 
     // serve side validation
@@ -27,15 +29,16 @@ module.exports = {
             return hashPassword(password)
               .then((passwordHashed) =>
                 createUserQuery(username, email, passwordHashed)
-                  .then(() => {
+                  .then((data) => {
                     const options = { expiresIn: '24h' };
                     generateToken(
-                      { username, email },
+                      { id: data.rows[0].id, username, email },
                       process.env.ACCESS_TOKEN_SECRET,
                       options,
                     ).then((token) => {
                       res
                         .status(200)
+                        .cookie('id', data.rows[0].id)
                         .cookie('username', username)
                         .cookie('accessToken', token)
                         .json({
@@ -44,11 +47,11 @@ module.exports = {
                         });
                     });
                   })
-                  .catch((error) => next(error)),
+                  .catch(() => res.status(500).sendFile(join(relativePath, 'error/500.html'))),
               )
-              .catch((error) => next(error));
+              .catch(() => res.status(500).sendFile(join(relativePath, 'error/500.html')));
           })
-          .catch((error) => next(error));
+          .catch(() => res.status(500).sendFile(join(relativePath, 'error/500.html')));
       })
       .catch((error) => {
         const { _original } = error;
@@ -71,11 +74,14 @@ module.exports = {
 
   logout: (_, res, next) => {
     try {
-      res.status(301).clearCookie('accessToken').clearCookie('username').redirect('/');
+      res
+        .status(301)
+        .clearCookie('accessToken')
+        .clearCookie('username')
+        .clearCookie('id')
+        .redirect('/');
     } catch (err) {
       next(err);
     }
   },
-
-
 };

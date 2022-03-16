@@ -16,12 +16,14 @@ const loginValidData = (req, res) => {
             .then((hashExists) => {
               if (hashExists) {
                 const tokenBody = {
+                  id: data.rows[0].id,
                   username: data.rows[0].user_name,
                   email: data.rows[0].email,
                 };
                 const token = sign(tokenBody, process.env.ACCESS_TOKEN_SECRET);
                 res
                   .status(200)
+                  .cookie('id', data.rows[0].id)
                   .cookie('accessToken', token)
                   .cookie('username', data.rows[0].user_name)
                   .json({ status: 200, message: ' success!' });
