@@ -6,7 +6,7 @@ const emailErrorMessage = document.querySelector('.email-error-messsage');
 const passwordErrorMessage = document.querySelector('.password-error-messsage');
 
   //  cleint side validation 
-emailInput.addEventListener('focusout', (e) => {
+emailInput.addEventListener('focusout', () => {
   const email = document.getElementById('email').value;
   const regexEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
   if (!regexEmail.test(email) || email.length <= 0) {
@@ -16,7 +16,7 @@ emailInput.addEventListener('focusout', (e) => {
   }
 });
 
-passwordInput.addEventListener('focusout', (e) => {
+passwordInput.addEventListener('focusout', () => {
   const password = document.getElementById('password').value;
   const regexPassword = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/;
   if (!regexPassword.test(password) || password.length <= 0) {
@@ -29,13 +29,13 @@ passwordInput.addEventListener('focusout', (e) => {
 })
  //  end client side validation
 
+ // server side validation
 loginButton.addEventListener('click', (e) => {
   e.preventDefault();
 
   const email = document.getElementById('email').value;
   const password = document.getElementById('password').value;
 
-  // server side validation
   fetch('/api/login', {
     method: 'POST',
     headers: {
@@ -48,19 +48,14 @@ loginButton.addEventListener('click', (e) => {
   })
     .then((response) => response.json())
     .then((res) => {
-      console.log(res.status);
       if (res.status === 200) {
         window.location = '/';
       } else if (res.errorType === 'passwordError') {
         document.querySelector('.password-error-messsage').textContent = res.message;
-        console.log(res);
       } else if (res.errorType === 'emailError') {
         emailErrorMessage.textContent = res.message;
-        console.log(res);
-      } else{
-        console.log(res);
       }
     })
-    .catch((err) => console.log(err, 2));
+    .catch(() => { window.location = '../error/404.html' });
 });
 // protected routes query to get all the games from database
