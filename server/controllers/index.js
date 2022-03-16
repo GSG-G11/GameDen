@@ -9,7 +9,7 @@ const {
 
 const { loginValidData, getLoginPage } = require('./login');
 
-const { getAllGames, addGameToUser ,getAllGamesUser} = require('./gamesHandle');
+const { getAllGames, addGameToUser ,getAllGamesUser,showAllGamesUser} = require('./gamesHandle');
 
 module.exports = {
   generateToken,
@@ -25,5 +25,6 @@ module.exports = {
   getLoginPage,
   getAllGames,
   addGameToUser,
-  getAllGamesUser
+  getAllGamesUser,
+  showAllGamesUser
 };

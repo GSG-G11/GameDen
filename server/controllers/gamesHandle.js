@@ -83,4 +83,12 @@ module.exports = {
       return res.status(302).redirect('/');
     }
   },
+
+  showAllGamesUser: (req, res) => {
+    try {
+      res.status(301).sendFile(join(relativePath, '../userGames.html'));
+    } catch (err) {
+      res.status(500).sendFile(join(relativePath, '500.html'));
+    }
+  },
 };
