@@ -51,7 +51,7 @@ loginButton.addEventListener('click', (e) => {
       console.log(res);
 
       if (res.status === 200) {
-        window.location = '/';
+        window.location = '/games';
       } else if (res.errorType === 'passwordError') {
         document.querySelector('.password-error-messsage').textContent =
           res.message;

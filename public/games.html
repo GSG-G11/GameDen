@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>GameDen | Users Game</title>
+    <title>GameDen | Games</title>
     <link rel="stylesheet" href="/css/style.css" />
   </head>
   <body>
@@ -12,17 +12,22 @@
       <a class="home" href="/">Home</a>
       <div>
         <div class="auth__container">
-          <a href="/games">Games</a>
+          <a href="/user/games/show" class="auth__username"
+            ><span>HI</span> - <span id="auth-username"></span
+          ></a>
           <a href="/logout">Logout</a>
         </div>
       </div>
     </nav>
 
     <!-- game -->
-    <section id="user-games-container"></section>
+    <section class="games-container" id="games-container"></section>
+
+    <!-- scripts -->
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <script src="/js/fun-dom.js"></script>
     <script src="/js/fetchData.js"></script>
-    <script src="/js/UserGamesDom.js"></script>
+    <script src="/js/fetchGames.js"></script>
   </body>
 </html>

@@ -117,9 +117,7 @@ const handleSubmitFrom = () => {
           '#confirm-password',
         ]);
 
-        setTimeout(() => {
-          window.location.href = '/';
-        }, 2000);
+        window.location.href = '/games';
       })
       .catch((error) => {
         useAlert('Error', error.message, 'error', 'Ok', 'center', 2000, false);

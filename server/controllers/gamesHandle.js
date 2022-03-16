@@ -91,4 +91,12 @@ module.exports = {
       res.status(500).sendFile(join(relativePath, '500.html'));
     }
   },
+  
+  showAllGames:(req, res) => {
+    try {
+      res.status(301).sendFile(join(relativePath, '../games.html'));
+    } catch (err) {
+      res.status(500).sendFile(join(relativePath, '500.html'));
+    }
+  }
 };
