@@ -6,4 +6,4 @@ const schema = Joi.object({
   password: Joi.string().min(7).required(),
 });
 
-module.exports = schema;
+module.exports = { schema };

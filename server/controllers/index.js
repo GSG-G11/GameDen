@@ -7,7 +7,7 @@ const {
   logout,
 } = require('./createUserHandle');
 
-const { loginValidData, getLoginPage } = require('./login');
+const { loginValedate, loginValidData, getLoginPage } = require('./login');
 
 module.exports = {
   generateToken,
@@ -19,6 +19,7 @@ module.exports = {
   createUserHandle,
   getRegisterPage,
   logout,
+  loginValedate,
   loginValidData,
   getLoginPage,
 };
