@@ -9,7 +9,6 @@ const {
 const { redirectToDefault, authenticateToken } = require('../../middleware');
 
 
-
 const user = express.Router();
 
 user.get('/logout', authenticateToken, logout);
