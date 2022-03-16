@@ -1,3 +1,4 @@
-const registerValidationSchema = require('./registerValidationSchema')
+const registerValidationSchema = require('./registerValidationSchema');
+const loginValidationSchema = require('./loginValidationSchema');
 
-module.exports = registerValidationSchema;
+module.exports = { registerValidationSchema, loginValidationSchema };
