@@ -19,7 +19,7 @@ we have an awsome display Showing PC Games of every genre. We have mods, DLC and
  Browse through your faviourite game read more And explore more and read more about the most trendy and fun games and add you preffered games to your library
  
 # User Journey 
- * As a user I can
+  As a user I can
  - I login or if i dont have an accout register to the website.
  - In the home page I can browose through the avilable games.
  - I can add games to my library.
